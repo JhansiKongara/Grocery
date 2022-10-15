@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 mongoose
   .connect(
-    "mongodb+srv://Jhansi9999:Jhansi2106@grocery.63xcih1.mongodb.net/grocery",
+    "mongodb+srv://Jhansi9999:Jhansi2106@grocery.63xcih1.mongodb.net/grocery?retryWrites=true&w=majority",
     {
       // useCreateIndex: true,
       useNewUrlParser: true,
