@@ -13,3 +13,4 @@ app.use("/api", AuthRoute);
 app.listen(PORT, () => {
   console.log("server Running on Port Number: " + PORT);
 });
+// mongodb+srv://Jhansi9999:<password>@cluster0.v3a7zlm.mongodb.net/?retryWrites=true&w=majority
