@@ -11,9 +11,5 @@ const PORT = process.env.PORT || 4000;
 app.use(express.static(__dirname + "/dista/grocery/"));
 app.use("/api", AuthRoute);
 app.listen(PORT, () => {
-  console.log(
-    "Express server listening on port %d in %s mode",
-    this.address().port,
-    app.settings.env
-  );
+  console.log("server Running on Port Number: " + PORT);
 });
