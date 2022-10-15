@@ -31,7 +31,7 @@ let login = (req, res, next) => {
     (err, user) => {
       if (err) {
         res.status(400).json({ Error: "user Not Existed" });
-      } else if (user.a.hasOwnProperty("Password")) {
+      } else if (user.hasOwnProperty("Password")) {
         bcrypt
           .compare(req.body.Password, user.Password)
           .then((valid) => {
@@ -73,7 +73,7 @@ getUser = (req, res) => {
       res.status(400).json({
         Error: "User Details Not Available",
       });
-    } else if (userdata?._id) {
+    } else if (userdata.hasOwnProperty("_id")) {
       let userData = {};
       userData._id = userdata._id;
       userData.UserId = userdata.UserId;
