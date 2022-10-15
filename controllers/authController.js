@@ -31,9 +31,9 @@ let login = (req, res, next) => {
     (err, user) => {
       if (err) {
         res.status(400).json({ Error: "user Not Existed" });
-      } else if (user?.Password) {
+      } else if (user.a.hasOwnProperty("Password")) {
         bcrypt
-          .compare(req.body.Password, user?.Password)
+          .compare(req.body.Password, user.Password)
           .then((valid) => {
             if (valid) {
               let token = jwt.sign(
