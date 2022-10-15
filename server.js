@@ -1,5 +1,4 @@
 let express = require("express");
-var path = require("path");
 let bodyParser = require("body-parser");
 require("./dbConnection/db");
 require("dotenv").config();
