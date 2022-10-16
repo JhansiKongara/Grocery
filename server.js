@@ -10,6 +10,7 @@ var cors = require("cors");
 app.use(cors());
 let AuthRoute = require("./routers/authRouter");
 const PORT = process.env.PORT || 4000;
+console.log(__dirname);
 app.use(express.static(path.join(__dirname, "dist/grocery")));
 app.use("/api", AuthRoute);
 app.get("/*", (req, res) => {
