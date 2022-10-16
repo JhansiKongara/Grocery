@@ -11,10 +11,10 @@ app.use(cors());
 let AuthRoute = require("./routers/authRouter");
 const PORT = process.env.PORT || 4000;
 console.log(__dirname);
-app.use(express.static(path.join(__dirname + "/dist/grocery/")));
+app.use(express.static(path.join(__dirname + "/grocery/")));
 app.use("/api", AuthRoute);
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/dist/grocery/index.html"));
+  res.sendFile(path.join(__dirname + "/grocery/index.html"));
 });
 app.listen(PORT, () => {
   console.log("server Running on Port Number: " + PORT);
