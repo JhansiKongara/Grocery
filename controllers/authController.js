@@ -1,7 +1,7 @@
 let user = require("../models/user");
+const config = require("config");
 let bcrypt = require("bcrypt");
 let jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 let register = (req, res, next) => {
   bcrypt.hash(req.body.Password, 10, (err, hashPassword) => {
@@ -24,7 +24,6 @@ let register = (req, res, next) => {
 };
 
 let login = (req, res, next) => {
-  console.log(req.body);
   user.findOne(
     {
       $or: [{ UserId: req.body.UserId }, { Mobile: req.body.Mobile }],
@@ -32,19 +31,18 @@ let login = (req, res, next) => {
     (err, user) => {
       if (err) {
         res.status(400).json({ Error: "user Not Existed" });
-      } else if (user.hasOwnProperty("Password")) {
+      } else {
         bcrypt
           .compare(req.body.Password, user.Password)
           .then((valid) => {
             if (valid) {
               let token = jwt.sign(
                 { data: user._id },
-                process.env.JWT_SECRET_KEY,
+                config.get("Customer.credit.jwt_secreat"),
                 {
                   expiresIn: "1h",
                 }
               );
-              // console.log("37", res, req.body.Password, token);
               res.json({
                 message: "Logged Successfuly",
                 token,
@@ -59,10 +57,6 @@ let login = (req, res, next) => {
               Error: "Invalid Password",
             });
           });
-      } else {
-        res.status(400).json({
-          Error: "User Not Existed",
-        });
       }
     }
   );
@@ -74,7 +68,7 @@ getUser = (req, res) => {
       res.status(400).json({
         Error: "User Details Not Available",
       });
-    } else if (userdata.hasOwnProperty("_id")) {
+    } else {
       let userData = {};
       userData._id = userdata._id;
       userData.UserId = userdata.UserId;

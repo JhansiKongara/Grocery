@@ -1,10 +1,10 @@
 {
     "Customer": {
       "dbConfig": {
-        "host": "prod-db-server"
+        "db_url":"mongodb://localhost:27017/class"
       },
       "credit": {
-        "initialDays": 30
+       "jwt_secreat":"$ffdhnvf$$"
       }
     }
   }

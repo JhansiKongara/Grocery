@@ -1,13 +1,10 @@
 {
     "Customer": {
       "dbConfig": {
-        "host": "localhost",
-        "port": 5984,
-        "dbName": "customers"
+        "db_url":"mongodb://localhost:27017/class"
       },
       "credit": {
-        "initialLimit": 100,
-        "initialDays": 1
+       "jwt_secreat":"$ffdhnvf$$"
       }
     }
   }

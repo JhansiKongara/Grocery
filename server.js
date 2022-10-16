@@ -1,6 +1,5 @@
 let express = require("express");
 let path = require("path");
-const config = require("config");
 let bodyParser = require("body-parser");
 require("./dbConnection/db");
 require("dotenv").config();

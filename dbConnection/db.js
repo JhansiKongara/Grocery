@@ -1,15 +1,10 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+const config = require("config");
 mongoose
-  .connect(
-    "mongodb+srv://Jhansi9999:Jhansi2106@grocery.63xcih1.mongodb.net/grocery?retryWrites=true&w=majority",
-    {
-      // useCreateIndex: true,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      // useFindAndModify: false,
-    }
-  )
+  .connect(config.get("Customer.dbConfig.db_url"), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("connection succesful");
   })
