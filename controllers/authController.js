@@ -24,6 +24,7 @@ let register = (req, res, next) => {
 };
 
 let login = (req, res, next) => {
+  console.log(req.body);
   user.findOne(
     {
       $or: [{ UserId: req.body.UserId }, { Mobile: req.body.Mobile }],
