@@ -1,7 +1,7 @@
 {
     "Customer": {
       "dbConfig": {
-        "db_url":"mongodb://localhost:27017/class"
+        "db_url":"mongodb+srv://Jhansi9999:Jhansi2106@grocery.63xcih1.mongodb.net/grocery"
       },
       "credit": {
        "jwt_secreat":"$ffdhnvf$$"
