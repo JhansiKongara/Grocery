@@ -1,4 +1,5 @@
 let express = require("express");
+let path = require("path");
 let bodyParser = require("body-parser");
 require("./dbConnection/db");
 require("dotenv").config();
@@ -8,8 +9,11 @@ var cors = require("cors");
 app.use(cors());
 let AuthRoute = require("./routers/authRouter");
 const PORT = process.env.PORT || 4000;
-app.use(express.static(__dirname + "/dist/grocery/"));
+app.use(express.static(path.join(__dirname, "dist/grocery")));
 app.use("/api", AuthRoute);
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/dist/grocery/index.html"));
+});
 app.listen(PORT, () => {
   console.log("server Running on Port Number: " + PORT);
 });
