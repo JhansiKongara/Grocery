@@ -70,7 +70,7 @@ getUser = (req, res) => {
       });
     } else {
       let userData = {};
-      userData._id = userdata._id;
+      userData._id = userdata?._id;
       userData.UserId = userdata.UserId;
       userData.Mobile = userdata.Mobile;
       userData.createdAt = userdata.createdAt;

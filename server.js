@@ -7,6 +7,7 @@ let app = express();
 app.use(bodyParser.json());
 var cors = require("cors");
 app.use(cors());
+console.log(process.env.NODE_ENV);
 let AuthRoute = require("./routers/authRouter");
 const PORT = process.env.PORT || 4000;
 app.use(express.static(path.join(__dirname, "grocery")));
